@@ -46,9 +46,11 @@ function test() {
             url: url + password, // l'url
             type: 'POST',
             dataType: 'text', // ce qu'on veut
-            success: function (result) {
-                rep = result;
+            async : false ,
+            complete: function (result) {
+                rep = result.responseText ;
                 console.log(rep);
+                // n'attends pas que le sucess soit finit pour continuer donc pas de "resolu" solution?
             }
         }).always(function(result, status, error){
             console.log(result);
